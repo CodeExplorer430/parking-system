@@ -4,9 +4,13 @@ USE parking_system;
 CREATE TABLE IF NOT EXISTS vehicles (
     id INT AUTO_INCREMENT PRIMARY KEY,
     plate_number VARCHAR(20) NOT NULL,
-    vehicle_type ENUM('car', 'motorcycle', 'truck') NOT NULL,
+    vehicle_type ENUM('2wheels', '3wheels', '4wheels', '6wheels') NOT NULL,
     has_sticker BOOLEAN DEFAULT FALSE,
+    sticker_number VARCHAR(20) NULL,
+    vip_number VARCHAR(20) NULL,
+    reference_number VARCHAR(20) NULL,
     entry_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    exit_time TIMESTAMP NULL,
     slot_number INT NOT NULL,
     status ENUM('parked', 'left') DEFAULT 'parked'
 );
